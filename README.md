@@ -31,3 +31,5 @@ npm run storybook
 ```
 "emitDecoratorMetadata": true,
 ```
+
+7. Create story for basic MyComponentLibrary reference the component and module directly 
