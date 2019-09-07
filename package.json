@@ -9,7 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "build-lib": "cd . && ng build my-control-library",
+    "pack-lib": "cd ./dist/my-control-library && npm pack"
   },
   "private": true,
   "dependencies": {

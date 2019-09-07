@@ -126,3 +126,9 @@ Note: to make storysource addon work, I needed to add the following to the webpa
     include: [path.resolve(__dirname, '../src')],
   });
 ```
+
+12. add npm scripts to build and package the my-control-library
+```
+"build-lib": "ng build my-control-library",
+"package-lib": "cd ./dist/my-control-library && npm pack"
+```
