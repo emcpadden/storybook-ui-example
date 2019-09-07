@@ -69,3 +69,60 @@ Also add the following peer dependencies in the my-control-library package.json 
 "@angular/cdk": "~8.1.4",
 "@angular/material": "^8.1.4"
 ```
+
+11. Add several of the StorybookJS Add ons:
+```
+    "@storybook/addon-a11y": "^5.1.11",
+    "@storybook/addon-actions": "^5.1.11",
+    "@storybook/addon-backgrounds": "^5.1.11",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-cssresources": "^5.1.11",
+    "@storybook/addon-knobs": "^5.1.11",
+    "@storybook/addon-links": "^5.1.11",
+    "@storybook/addon-notes": "^5.1.11",
+    "@storybook/addon-storysource": "^5.1.11",
+    "@storybook/addon-viewport": "^5.1.11",
+```
+```
+npm install @storybook/addon-a11y, @storybook/addon-actions, @storybook/addon-backgrounds, @storybook/addon-console,  @storybook/addon-cssresources, @storybook/addon-knobs, @storybook/addon-links, @storybook/addon-notes, @storybook/addon-storysource, @storybook/addon-viewport --save-dev 
+
+npm install @storybook/addon-a11y --save-dev
+npm install @storybook/addon-actions --save-dev
+npm install @storybook/addon-backgrounds --save-dev
+npm install @storybook/addon-console --save-dev
+npm install @storybook/addon-cssresources --save-dev
+npm install @storybook/addon-knobs --save-dev
+npm install @storybook/addon-links --save-dev
+npm install @storybook/addon-notes --save-dev
+npm install @storybook/addon-storysource --save-dev
+npm install @storybook/addon-viewport --save-dev
+```
+And add them to the addons.js:
+```
+import '@storybook/addon-actions/register';
+import '@storybook/addon-links/register';
+import '@storybook/addon-notes/register';
+import '@storybook/addon-viewport/register';
+import '@storybook/addon-console';
+import '@storybook/addon-knobs/register';
+import '@storybook/addon-a11y/register';
+import '@storybook/addon-cssresources/register';
+import '@storybook/addon-backgrounds/register';
+import '@storybook/addon-storysource/register';
+```
+Note: to make storysource addon work, I needed to add the following to the webpack.config.js:
+```
+  config.module.rules.push({
+    test: /\.stories\.ts?$/,
+    loaders: [
+      {
+        loader: require.resolve('@storybook/addon-storysource/loader'),
+        options: {
+          parser: 'typescript'
+        }
+      }
+    ],
+    enforce: 'pre',
+    include: [path.resolve(__dirname, '../src')],
+  });
+```
