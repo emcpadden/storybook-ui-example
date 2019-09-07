@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ui-my-control-library',
-  template: `
-    <p>
-      my-control-library works!
-    </p>
-  `,
-  styles: []
+  templateUrl: './my-control-library.component.html',
+  styleUrls: ['./my-control-library.component.scss'],
 })
 export class MyControlLibraryComponent implements OnInit {
 

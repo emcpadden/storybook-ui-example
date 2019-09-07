@@ -56,3 +56,8 @@ Then run:
 npm run storybook
 ```
 I found it could take some time before the watching starts to work.  BUt then it just starts working, not sure why.
+
+9. Move the templates and styles in the component library to their own files.  In order for this to work you will also need to install node-sass.
+```
+npm install node-sass --save-dev
+```
