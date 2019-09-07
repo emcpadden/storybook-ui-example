@@ -33,3 +33,26 @@ npm run storybook
 ```
 
 7. Create story for basic MyComponentLibrary reference the component and module directly 
+
+8. Modify the webpack config in the .storybook folder to get storybook auto refresh when the component library code is modified.  Below is the webpack config:
+```
+const path = require("path");
+
+module.exports = function({ config }) {
+  config.watchOptions = {
+      aggregateTimeout: 300,
+      poll: 1000
+  };
+
+  return config;
+};
+```
+NOTE: in order for this to work, you will need to be building the component library in watch mode while the storybook is running.  To build in watch mode, do the following:
+```
+ng build my-control-library --watch
+```
+Then run:
+```
+npm run storybook
+```
+I found it could take some time before the watching starts to work.  BUt then it just starts working, not sure why.
